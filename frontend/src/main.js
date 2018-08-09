@@ -5,13 +5,21 @@ import App from './App'
 import router from './router'
 import store from './store'
 
-Vue.config.productionTip = false
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
 
+Vue.config.productionTip = false
+Vue.use(ElementUI)
+Vue.use(store)
 /* eslint-disable no-new */
-new Vue({
+const vue = new Vue({
   el: '#app',
   router,
-  store,
-  components: { App },
+  store: store,
+  components: {
+    App
+  },
   template: '<App/>'
 })
+
+global.vue = vue
